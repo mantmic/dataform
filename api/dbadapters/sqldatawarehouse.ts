@@ -13,7 +13,7 @@ const DATA_TYPE_COL_NAME = "data_type";
 const IS_NULLABLE_COL_NAME = "is_nullable";
 const DB_CONNECTION_TIMEOUT_MILLIS = 30 * 60 * 1000; //30 minute connection timeout
 const DB_REQUEST_TIMEOUT_MILLIS = 1 * 60 * 60 * 1000; //1 hour request timeout
-const DB_CON_LIMIT = 10; //mssql default value of 10 concurrent requests
+const DB_CON_LIMIT = 20; 
 
 
 export class SQLDataWarehouseDBAdapter implements IDbAdapter {
