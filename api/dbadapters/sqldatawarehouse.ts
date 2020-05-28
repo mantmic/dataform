@@ -13,7 +13,7 @@ const DATA_TYPE_COL_NAME = "data_type";
 const IS_NULLABLE_COL_NAME = "is_nullable";
 const DB_CONNECTION_TIMEOUT_MILLIS = 30 * 60 * 1000; //30 minute connection timeout
 const DB_REQUEST_TIMEOUT_MILLIS = 1 * 60 * 60 * 1000; //1 hour request timeout
-const DB_CON_LIMIT = 20; 
+const DB_CON_LIMIT = 4;
 
 
 export class SQLDataWarehouseDBAdapter implements IDbAdapter {
@@ -36,7 +36,12 @@ export class SQLDataWarehouseDBAdapter implements IDbAdapter {
         requestTimeout: DB_REQUEST_TIMEOUT_MILLIS,
         pool: {
           min: 0,
-          max: DB_CON_LIMIT
+          max: DB_CON_LIMIT,
+          acquireTimeoutMillis: DB_REQUEST_TIMEOUT_MILLIS,
+          //createTimeoutMillis: DB_REQUEST_TIMEOUT_MILLIS,
+          //destroyTimeoutMillis: DB_REQUEST_TIMEOUT_MILLIS,
+          //reapIntervalMillis: 10000,
+          //createRetryIntervalMillis: 5000,
         },
         options: {
           encrypt: true
